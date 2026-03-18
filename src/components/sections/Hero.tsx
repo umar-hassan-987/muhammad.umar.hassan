@@ -15,7 +15,7 @@ export function Hero() {
         >
           <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-none overflow-hidden bg-card border border-white/10">
             <img 
-              src={`${import.meta.env.BASE_URL}images/avatar-placeholder.png`} 
+              src={`${import.meta.env.BASE_URL}images/Muhammad_Umar_Hassan_Profile_Pic.png`} 
               alt="Muhammad Umar Hassan"
               className="w-full h-full object-cover grayscale opacity-90"
             />
