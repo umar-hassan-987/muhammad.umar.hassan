@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, X, Github, ExternalLink } from "lucide-react";
+import { ArrowUpRight, X, Github, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 
 type Project = {
   id: string;
@@ -16,6 +16,56 @@ type Project = {
 const projectsList: Project[] = [
   {
     id: "01",
+    title: "ProxyIQ",
+    category: "Web Application",
+    github: "#",
+    description: "A comprehensive healthcare supply chain platform designed to manage inventory, track resources, and streamline enterprise operations.",
+    tech: ["React", "Python", "AWS"],
+    gradient: "from-blue-900 via-indigo-800 to-slate-900",
+    accentColor: "bg-blue-500",
+  },
+  {
+    id: "02",
+    title: "DeepBlight",
+    category: "Mobile App",
+    github: "#",
+    description: "A specialized native Android application built in Android Studio, focusing on responsive design and seamless user experience.",
+    tech: ["Android Studio", "Java", "Kotlin"],
+    gradient: "from-purple-900 via-violet-800 to-slate-900",
+    accentColor: "bg-purple-500",
+  },
+  {
+    id: "03",
+    title: "GroceryMart",
+    category: "Web",
+    github: "#",
+    description: "A modern grocery shopping platform with real-time inventory, user-friendly interface, and seamless checkout process.",
+    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    gradient: "from-green-900 via-emerald-800 to-slate-900",
+    accentColor: "bg-green-500",
+  },
+  {
+    id: "04",
+    title: "ExtraJobs",
+    category: "Web",
+    github: "#",
+    description: "A freelance platform similar to Fiverr, connecting clients with skilled freelancers for various projects and services.",
+    tech: ["React", "Express", "PostgreSQL", "Socket.io"],
+    gradient: "from-indigo-900 via-blue-800 to-slate-900",
+    accentColor: "bg-indigo-500",
+  },
+  {
+    id: "05",
+    title: "PtolemyTree Report",
+    category: "Software",
+    github: "#",
+    description: "Digital palm tree report generation tool for environmental monitoring and data analysis.",
+    tech: ["Python", "Pandas", "Matplotlib", "Flask"],
+    gradient: "from-orange-900 via-amber-800 to-slate-900",
+    accentColor: "bg-orange-500",
+  },
+  {
+    id: "06",
     title: "WatchTime Movie Tracker",
     category: "Web",
     github: "https://github.com/Umar1-1assan/watch-time",
@@ -26,7 +76,7 @@ const projectsList: Project[] = [
     accentColor: "bg-blue-500",
   },
   {
-    id: "02",
+    id: "07",
     title: "Ultimate Tic-Tac-Toe AI",
     category: "AI",
     github: "https://github.com/Umar1-1assan/Ultimate-TTT",
@@ -37,7 +87,7 @@ const projectsList: Project[] = [
     accentColor: "bg-purple-500",
   },
   {
-    id: "03",
+    id: "08",
     title: "IPFS Distributed File Storage",
     category: "Systems",
     github: "https://github.com/Umar1-1assan/IPFS-DSA",
@@ -48,7 +98,7 @@ const projectsList: Project[] = [
     accentColor: "bg-orange-500",
   },
   {
-    id: "04",
+    id: "09",
     title: "Hospital Management System",
     category: "Software",
     github: "https://github.com/Umar1-1assan/Hospital-Management-System",
@@ -59,7 +109,7 @@ const projectsList: Project[] = [
     accentColor: "bg-emerald-500",
   },
   {
-    id: "05",
+    id: "10",
     title: "Next Word Prediction LSTM",
     category: "AI",
     github: "https://github.com/Umar1-1assan/next_word_lstm",
@@ -70,7 +120,7 @@ const projectsList: Project[] = [
     accentColor: "bg-pink-500",
   },
   {
-    id: "06",
+    id: "11",
     title: "Pacman-OS",
     category: "Systems",
     github: "https://github.com/Umar1-1assan/Pacman-OS",
@@ -81,7 +131,7 @@ const projectsList: Project[] = [
     accentColor: "bg-yellow-500",
   },
   {
-    id: "07",
+    id: "12",
     title: "Pacman-COAL (Assembly)",
     category: "Systems",
     github: "https://github.com/Umar1-1assan/Pacman-COAL",
@@ -92,7 +142,7 @@ const projectsList: Project[] = [
     accentColor: "bg-red-500",
   },
   {
-    id: "08",
+    id: "13",
     title: "MISTs Construction (MPI + OpenMP)",
     category: "Systems",
     github: "https://github.com/MuhammadSarmad091/MISTs-Construction-using-MPICH-and-OpenMP",
@@ -103,7 +153,7 @@ const projectsList: Project[] = [
     accentColor: "bg-cyan-500",
   },
   {
-    id: "09",
+    id: "14",
     title: "JSON to CSV Compiler",
     category: "Systems",
     github: "https://github.com/Umar1-1assan/Json-to-csv",
@@ -114,7 +164,7 @@ const projectsList: Project[] = [
     accentColor: "bg-slate-400",
   },
   {
-    id: "10",
+    id: "15",
     title: "Quiz Management System",
     category: "Software",
     github: "https://github.com/Umar1-1assan/QuizManagementSystem",
@@ -125,7 +175,7 @@ const projectsList: Project[] = [
     accentColor: "bg-indigo-500",
   },
   {
-    id: "11",
+    id: "16",
     title: "Space Shooter OOP",
     category: "Software",
     github: "https://github.com/Umar1-1assan/SpaceShooter-OOP",
@@ -136,7 +186,7 @@ const projectsList: Project[] = [
     accentColor: "bg-violet-500",
   },
   {
-    id: "12",
+    id: "17",
     title: "Flex for Gyms",
     category: "Software",
     github: "#",
@@ -145,7 +195,7 @@ const projectsList: Project[] = [
     tech: ["C#", ".NET", "SQL Server", "Windows Forms"],
     gradient: "from-green-900 via-emerald-800 to-slate-900",
     accentColor: "bg-green-500",
-  },
+  }
 ];
 
 function ProjectThumbnail({ project, size = "sm" }: { project: Project; size?: "sm" | "lg" }) {
@@ -191,10 +241,13 @@ function ProjectThumbnail({ project, size = "sm" }: { project: Project; size?: "
 
 export function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const handleRowClick = (project: Project) => {
     setSelected((prev) => (prev?.id === project.id ? null : project));
   };
+
+  const displayedProjects = showAll ? projectsList : projectsList.slice(0, 6);
 
   return (
     <section id="projects" className="py-32">
@@ -209,6 +262,7 @@ export function Projects() {
             <span className="text-foreground">FEATURED</span>
             <span className="text-white/20">PROJECTS</span>
           </h2>
+          
         </motion.div>
 
         <div className="w-full h-[1px] bg-white/10 mb-8" />
@@ -216,7 +270,7 @@ export function Projects() {
         <div className="flex gap-8 items-start">
           {/* Project List */}
           <div className="flex-1 flex flex-col min-w-0">
-            {projectsList.map((project, index) => (
+            {displayedProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -400,6 +454,23 @@ export function Projects() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* See More Button */}
+        {projectsList.length > 6 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-bold hover:bg-primary/90 transition-colors"
+            >
+              {showAll ? "Show Less" : `See More Projects (${projectsList.length - 6})`}
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );
