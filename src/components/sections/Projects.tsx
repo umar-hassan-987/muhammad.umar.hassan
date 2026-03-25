@@ -11,6 +11,7 @@ type Project = {
   tech: string[];
   gradient: string;
   accentColor: string;
+  image?: string;
 };
 
 const projectsList: Project[] = [
@@ -23,6 +24,7 @@ const projectsList: Project[] = [
     tech: ["React", "Python", "AWS"],
     gradient: "from-blue-900 via-indigo-800 to-slate-900",
     accentColor: "bg-blue-500",
+    image: "/images/projects/img/proxyiq.png",
   },
   {
     id: "02",
@@ -33,6 +35,7 @@ const projectsList: Project[] = [
     tech: ["Android Studio", "Java", "Kotlin"],
     gradient: "from-purple-900 via-violet-800 to-slate-900",
     accentColor: "bg-purple-500",
+    image: "/images/projects/img/deepblight.png",
   },
   {
     id: "03",
@@ -63,6 +66,7 @@ const projectsList: Project[] = [
     tech: ["Python", "Pandas", "Matplotlib", "Flask"],
     gradient: "from-orange-900 via-amber-800 to-slate-900",
     accentColor: "bg-orange-500",
+    image: "/images/projects/img/ptolemy-tree.png",
   },
   {
     id: "06",
@@ -74,119 +78,10 @@ const projectsList: Project[] = [
     tech: ["React.js", "Node.js", "MongoDB", "Express.js", "TMDB API"],
     gradient: "from-blue-900 via-blue-800 to-slate-900",
     accentColor: "bg-blue-500",
+    image: "/images/projects/img/watchtime.PNG",
   },
   {
     id: "07",
-    title: "Ultimate Tic-Tac-Toe AI",
-    category: "AI",
-    github: "https://github.com/Umar1-1assan/Ultimate-TTT",
-    description:
-      "An AI-powered Ultimate Tic-Tac-Toe game using CSP techniques and Minimax with Alpha-Beta pruning. The AI plays optimally and is nearly unbeatable. Built with a Tkinter GUI for interactive play.",
-    tech: ["Python", "CSP", "Minimax", "Alpha-Beta Pruning", "Tkinter"],
-    gradient: "from-purple-900 via-violet-800 to-slate-900",
-    accentColor: "bg-purple-500",
-  },
-  {
-    id: "08",
-    title: "IPFS Distributed File Storage",
-    category: "Systems",
-    github: "https://github.com/Umar1-1assan/IPFS-DSA",
-    description:
-      "A distributed file storage simulation using SHA1 hashing and B-trees for efficient decentralized storage. Implements core IPFS protocols for secure and redundant data management.",
-    tech: ["C++", "SHA1", "B-Trees", "Distributed Systems"],
-    gradient: "from-orange-900 via-amber-800 to-slate-900",
-    accentColor: "bg-orange-500",
-  },
-  {
-    id: "09",
-    title: "Hospital Management System",
-    category: "Software",
-    github: "https://github.com/Umar1-1assan/Hospital-Management-System",
-    description:
-      "A desktop-based hospital management system built with JavaFX using design patterns for modularity. Manages patient records, doctor schedules, appointments, and billing.",
-    tech: ["JavaFX", "MySQL", "OOP", "Design Patterns"],
-    gradient: "from-emerald-900 via-green-800 to-slate-900",
-    accentColor: "bg-emerald-500",
-  },
-  {
-    id: "10",
-    title: "Next Word Prediction LSTM",
-    category: "AI",
-    github: "https://github.com/Umar1-1assan/next_word_lstm",
-    description:
-      "A word-level language model using LSTM neural networks to predict the next word in a sequence. Trained on large text corpora with configurable sequence length and model depth.",
-    tech: ["Python", "TensorFlow", "LSTM", "NLP", "Keras"],
-    gradient: "from-pink-900 via-rose-800 to-slate-900",
-    accentColor: "bg-pink-500",
-  },
-  {
-    id: "11",
-    title: "Pacman-OS",
-    category: "Systems",
-    github: "https://github.com/Umar1-1assan/Pacman-OS",
-    description:
-      "A Pacman-like operating system simulation built in C++, exploring OS concepts like process scheduling, memory management, and inter-process communication in a game environment.",
-    tech: ["C++", "OS Concepts", "Process Scheduling", "Memory Management"],
-    gradient: "from-yellow-900 via-amber-800 to-slate-900",
-    accentColor: "bg-yellow-500",
-  },
-  {
-    id: "12",
-    title: "Pacman-COAL (Assembly)",
-    category: "Systems",
-    github: "https://github.com/Umar1-1assan/Pacman-COAL",
-    description:
-      "An Assembly-based Pacman game demonstrating low-level programming concepts close to the metal. Written entirely in x86 Assembly, showcasing direct hardware manipulation and interrupt handling.",
-    tech: ["x86 Assembly", "Low-Level", "Hardware Interrupts", "BIOS"],
-    gradient: "from-red-900 via-red-800 to-slate-900",
-    accentColor: "bg-red-500",
-  },
-  {
-    id: "13",
-    title: "MISTs Construction (MPI + OpenMP)",
-    category: "Systems",
-    github: "https://github.com/MuhammadSarmad091/MISTs-Construction-using-MPICH-and-OpenMP",
-    description:
-      "Parallel construction of Minimum Spanning Trees using MPICH and OpenMP for high-performance computing. Achieves significant speedup over sequential algorithms through distributed memory and shared memory parallelism.",
-    tech: ["C++", "OpenMP", "MPI", "Parallel Computing", "Graph Algorithms"],
-    gradient: "from-cyan-900 via-teal-800 to-slate-900",
-    accentColor: "bg-cyan-500",
-  },
-  {
-    id: "14",
-    title: "JSON to CSV Compiler",
-    category: "Systems",
-    github: "https://github.com/Umar1-1assan/Json-to-csv",
-    description:
-      "A compiler that converts JSON files to CSV format using Flex for lexical analysis and Bison for parsing and semantic analysis. Handles nested objects, arrays, and type conversions.",
-    tech: ["Flex", "Bison", "C", "Compiler Theory", "Lexer/Parser"],
-    gradient: "from-slate-800 via-gray-700 to-slate-900",
-    accentColor: "bg-slate-400",
-  },
-  {
-    id: "15",
-    title: "Quiz Management System",
-    category: "Software",
-    github: "https://github.com/Umar1-1assan/QuizManagementSystem",
-    description:
-      "A system for teachers to create quizzes, manage classes, and auto-grade student submissions. Features role-based access control, real-time quiz sessions, and detailed performance analytics.",
-    tech: ["JavaFX", "MySQL", "OOP", "Role-Based Access"],
-    gradient: "from-indigo-900 via-blue-800 to-slate-900",
-    accentColor: "bg-indigo-500",
-  },
-  {
-    id: "16",
-    title: "Space Shooter OOP",
-    category: "Software",
-    github: "https://github.com/Umar1-1assan/SpaceShooter-OOP",
-    description:
-      "A Space Shooter game demonstrating Object-Oriented Programming principles in C++. Features inheritance hierarchies for player/enemy classes, collision detection, and smooth SFML rendering.",
-    tech: ["C++", "SFML", "OOP", "Game Development"],
-    gradient: "from-violet-900 via-purple-800 to-slate-900",
-    accentColor: "bg-violet-500",
-  },
-  {
-    id: "17",
     title: "Flex for Gyms",
     category: "Software",
     github: "#",
@@ -195,6 +90,127 @@ const projectsList: Project[] = [
     tech: ["C#", ".NET", "SQL Server", "Windows Forms"],
     gradient: "from-green-900 via-emerald-800 to-slate-900",
     accentColor: "bg-green-500",
+    image: "/images/projects/img/gym-flex.png",
+  },
+  {
+    id: "08",
+    title: "Ultimate Tic-Tac-Toe AI",
+    category: "AI",
+    github: "https://github.com/Umar1-1assan/Ultimate-TTT",
+    description:
+      "An AI-powered Ultimate Tic-Tac-Toe game using CSP techniques and Minimax with Alpha-Beta pruning. The AI plays optimally and is nearly unbeatable. Built with a Tkinter GUI for interactive play.",
+    tech: ["Python", "CSP", "Minimax", "Alpha-Beta Pruning", "Tkinter"],
+    gradient: "from-purple-900 via-violet-800 to-slate-900",
+    accentColor: "bg-purple-500",
+    image: "/images/projects/img/Utt.PNG",
+  },
+  {
+    id: "09",
+    title: "IPFS Distributed File Storage",
+    category: "Systems",
+    github: "https://github.com/Umar1-1assan/IPFS-DSA",
+    description:
+      "A distributed file storage simulation using SHA1 hashing and B-trees for efficient decentralized storage. Implements core IPFS protocols for secure and redundant data management.",
+    tech: ["C++", "SHA1", "B-Trees", "Distributed Systems"],
+    gradient: "from-orange-900 via-amber-800 to-slate-900",
+    accentColor: "bg-orange-500",
+    image: "/images/projects/img/ipfs2.PNG",
+  },
+  {
+    id: "10",
+    title: "Hospital Management System",
+    category: "Software",
+    github: "https://github.com/Umar1-1assan/Hospital-Management-System",
+    description:
+      "A desktop-based hospital management system built with JavaFX using design patterns for modularity. Manages patient records, doctor schedules, appointments, and billing.",
+    tech: ["JavaFX", "MySQL", "OOP", "Design Patterns"],
+    gradient: "from-emerald-900 via-green-800 to-slate-900",
+    accentColor: "bg-emerald-500",
+    image: "/images/projects/img/hms.png",
+  },
+  {
+    id: "11",
+    title: "Next Word Prediction LSTM",
+    category: "AI",
+    github: "https://github.com/Umar1-1assan/next_word_lstm",
+    description:
+      "A word-level language model using LSTM neural networks to predict the next word in a sequence. Trained on large text corpora with configurable sequence length and model depth.",
+    tech: ["Python", "TensorFlow", "LSTM", "NLP", "Keras"],
+    gradient: "from-pink-900 via-rose-800 to-slate-900",
+    accentColor: "bg-pink-500",
+    image: "/images/projects/img/lstm.PNG",
+  },
+  {
+    id: "12",
+    title: "Pacman-OS",
+    category: "Systems",
+    github: "https://github.com/Umar1-1assan/Pacman-OS",
+    description:
+      "A Pacman-like operating system simulation built in C++, exploring OS concepts like process scheduling, memory management, and inter-process communication in a game environment.",
+    tech: ["C++", "OS Concepts", "Process Scheduling", "Memory Management"],
+    gradient: "from-yellow-900 via-amber-800 to-slate-900",
+    accentColor: "bg-yellow-500",
+    image: "/images/projects/img/pacman-os.png",
+  },
+  {
+    id: "13",
+    title: "Pacman-COAL (Assembly)",
+    category: "Systems",
+    github: "https://github.com/Umar1-1assan/Pacman-COAL",
+    description:
+      "An Assembly-based Pacman game demonstrating low-level programming concepts close to the metal. Written entirely in x86 Assembly, showcasing direct hardware manipulation and interrupt handling.",
+    tech: ["x86 Assembly", "Low-Level", "Hardware Interrupts", "BIOS"],
+    gradient: "from-red-900 via-red-800 to-slate-900",
+    accentColor: "bg-red-500",
+    image: "/images/projects/img/pacman-coal.PNG",
+  },
+  {
+    id: "14",
+    title: "MISTs Construction (MPI + OpenMP)",
+    category: "Systems",
+    github: "https://github.com/MuhammadSarmad091/MISTs-Construction-using-MPICH-and-OpenMP",
+    description:
+      "Parallel construction of Minimum Spanning Trees using MPICH and OpenMP for high-performance computing. Achieves significant speedup over sequential algorithms through distributed memory and shared memory parallelism.",
+    tech: ["C++", "OpenMP", "MPI", "Parallel Computing", "Graph Algorithms"],
+    gradient: "from-cyan-900 via-teal-800 to-slate-900",
+    accentColor: "bg-cyan-500",
+    image: "/images/projects/img/MIST.PNG",
+  },
+  {
+    id: "15",
+    title: "JSON to CSV Compiler",
+    category: "Systems",
+    github: "https://github.com/Umar1-1assan/Json-to-csv",
+    description:
+      "A compiler that converts JSON files to CSV format using Flex for lexical analysis and Bison for parsing and semantic analysis. Handles nested objects, arrays, and type conversions.",
+    tech: ["Flex", "Bison", "C", "Compiler Theory", "Lexer/Parser"],
+    gradient: "from-slate-800 via-gray-700 to-slate-900",
+    accentColor: "bg-slate-400",
+    image: "/images/projects/img/jsontocsv.jpeg",
+  },
+  {
+    id: "16",
+    title: "Quiz Management System",
+    category: "Software",
+    github: "https://github.com/Umar1-1assan/QuizManagementSystem",
+    description:
+      "A system for teachers to create quizzes, manage classes, and auto-grade student submissions. Features role-based access control, real-time quiz sessions, and detailed performance analytics.",
+    tech: ["JavaFX", "MySQL", "OOP", "Role-Based Access"],
+    gradient: "from-indigo-900 via-blue-800 to-slate-900",
+    accentColor: "bg-indigo-500",
+    image: "/images/projects/img/quizms.png",
+  },
+  {
+    id: "17",
+    title: "Space Shooter OOP",
+    category: "Software",
+    github: "https://github.com/Umar1-1assan/SpaceShooter-OOP",
+    description:
+      "A Space Shooter game demonstrating Object-Oriented Programming principles in C++. Features inheritance hierarchies for player/enemy classes, collision detection, and smooth SFML rendering.",
+    tech: ["C++", "SFML", "OOP", "Game Development"],
+    gradient: "from-violet-900 via-purple-800 to-slate-900",
+    accentColor: "bg-violet-500",
+    image: "/images/projects/img/space-shooter.jpg",
   }
 ];
 
@@ -206,6 +222,13 @@ function ProjectThumbnail({ project, size = "sm" }: { project: Project; size?: "
 
   return (
     <div className={`bg-gradient-to-br ${project.gradient} ${cls} flex items-end p-2 relative overflow-hidden`}>
+      {project.image && (
+        <img
+          src={project.image}
+          alt={project.title}
+          className="absolute inset-0 w-full h-full object-cover rounded-lg"
+        />
+      )}
       <div className="absolute inset-0 opacity-30">
         {[...Array(4)].map((_, i) => (
           <div
@@ -228,11 +251,11 @@ function ProjectThumbnail({ project, size = "sm" }: { project: Project; size?: "
       )}
       {size === "lg" && (
         <div className="relative z-10 p-6 w-full">
-          <div className={`w-3 h-3 rounded-full ${project.accentColor} mb-3`} />
+          {/* <div className={`w-3 h-3 rounded-full ${project.accentColor} mb-3`} />
           <div className="text-xs font-bold text-white/50 uppercase tracking-[0.2em]">
             {project.category}
           </div>
-          <div className="text-2xl font-black text-white/80 leading-tight mt-1">{project.title}</div>
+          <div className="text-2xl font-black text-white/80 leading-tight mt-1">{project.title}</div> */}
         </div>
       )}
     </div>

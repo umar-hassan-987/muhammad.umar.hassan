@@ -13,7 +13,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="w-full lg:w-[300px] shrink-0 flex flex-col gap-8 mt-4 lg:mt-8"
         >
-          <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-none overflow-hidden bg-card border border-white/10">
+          <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-none overflow-hidden bg-card border border-white/10">
             <img 
               src={`${import.meta.env.BASE_URL}images/profile-umar.png`} 
               alt="Muhammad Umar Hassan"
