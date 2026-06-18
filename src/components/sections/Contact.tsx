@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
 import { useSubmitContact, contactSchema, type ContactFormValues } from "@/hooks/use-contact";
+import { useToast } from "@/hooks/use-toast";
 
 export function Contact() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormValues>({
@@ -15,12 +16,20 @@ export function Contact() {
     }
   });
 
+  const { toast } = useToast();
   const mutation = useSubmitContact();
 
   const onSubmit = (data: ContactFormValues) => {
     mutation.mutate(data, {
       onSuccess: () => {
         reset();
+      },
+      onError: (error: any) => {
+        toast({
+          title: "Failed to send message",
+          description: error.message || "An unexpected error occurred. Please try again.",
+          variant: "destructive",
+        });
       }
     });
   };
