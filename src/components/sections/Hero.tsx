@@ -1,7 +1,11 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
 
 export function Hero() {
+  const [isZoomed, setIsZoomed] = useState(false);
+  const imgSrc = `${import.meta.env.BASE_URL}images/projects/img/MUH.png`;
+
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center pt-28 pb-16 lg:py-0 bg-background">
       <div className="max-w-[1400px] mx-auto px-6 w-full flex flex-col lg:flex-row gap-12 lg:gap-24 items-center justify-center text-center lg:min-h-screen">
@@ -19,13 +23,59 @@ export function Hero() {
             Open to Opportunities
           </div>
 
-          <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-card border border-white/10">
-            <img 
-              src={`${import.meta.env.BASE_URL}images/projects/img/MUH.png`} 
+          {/* Profile Image with Zoom */}
+          <div 
+            className="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden bg-card border border-white/10 cursor-pointer relative"
+            onMouseEnter={() => setIsZoomed(true)}
+          >
+            <motion.img 
+              src={imgSrc} 
               alt="Muhammad Umar Hassan"
               className="w-full h-full object-cover"
+              layoutId="hero-profile-img"
             />
           </div>
+
+          {/* Zoomed Overlay */}
+          <AnimatePresence>
+            {isZoomed && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="fixed inset-0 z-50 flex items-center justify-center"
+                onMouseLeave={() => setIsZoomed(false)}
+                onClick={() => setIsZoomed(false)}
+              >
+                {/* Backdrop */}
+                <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+                
+                {/* Enlarged Image */}
+                <motion.div
+                  className="relative z-10 rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl shadow-primary/20"
+                  layoutId="hero-profile-img"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                >
+                  <img
+                    src={imgSrc}
+                    alt="Muhammad Umar Hassan"
+                    className="w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] object-cover"
+                  />
+                </motion.div>
+
+                {/* Subtle hint text */}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="absolute bottom-8 text-white/40 text-xs tracking-widest uppercase font-medium"
+                >
+                  Move mouse away to close
+                </motion.p>
+              </motion.div>
+            )}
+          </AnimatePresence>
           
           <div>
             <h2 className="text-lg font-bold tracking-tight mb-1 text-white">Muhammad Umar Hassan</h2>
