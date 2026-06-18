@@ -27,27 +27,28 @@
       color: var(--text-main);
       background-color: #f3f4f6;
       line-height: 1.4;
-      padding: 20px;
+      padding: 40px 0;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
 
-    /* Standard A4 sheet presentation */
+    /* Single continuous paper container for standard web preview */
     .resume-container {
       background: var(--bg-main);
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 35px;
+      padding: 45px;
       box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
       border-radius: 4px;
-      min-height: 1120px; /* Standard A4 proportion */
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     header {
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 20px;
-      margin-bottom: 20px;
+      border-bottom: 2.5px solid var(--primary);
+      padding-bottom: 16px;
+      margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -75,7 +76,7 @@
       text-align: right;
       font-size: 11px;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .header-right a {
@@ -88,28 +89,10 @@
       text-decoration: underline;
     }
 
-    .layout-grid {
-      display: grid;
-      grid-template-cols: 6.5fr 3.5fr;
-      gap: 24px;
-    }
-
-    .left-col {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .right-col {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
     section {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     h2.section-title {
@@ -118,26 +101,68 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #111827;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1.5px solid var(--border-color);
       padding-bottom: 4px;
       margin-bottom: 6px;
     }
 
     .bio-text {
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--text-muted);
       text-align: justify;
+      line-height: 1.45;
     }
 
+    /* Skills Grid Layout (2 columns to save height space) */
+    .skills-grid {
+      display: grid;
+      grid-template-cols: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .skills-group {
+      margin-bottom: 4px;
+    }
+
+    .skills-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-tag {
+      font-size: 9px;
+      background-color: #f3f4f6;
+      color: #374151;
+      padding: 1px 5px;
+      border-radius: 2px;
+      border: 1px solid #e5e7eb;
+      font-weight: 500;
+    }
+
+    .skill-tag.expert {
+      border-color: rgba(5, 150, 105, 0.3);
+      background-color: rgba(5, 150, 105, 0.04);
+      color: #047857;
+    }
+
+    /* Work Experience details */
     .timeline-item {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .timeline-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .role-title {
@@ -148,7 +173,7 @@
 
     .company-duration {
       text-align: right;
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-muted);
     }
 
@@ -169,8 +194,9 @@
       gap: 2px;
     }
 
+    /* Selected Projects details */
     .project-item {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .project-title {
@@ -183,7 +209,7 @@
     }
 
     .project-tech {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 500;
       color: var(--primary);
     }
@@ -191,40 +217,21 @@
     .project-desc {
       font-size: 11px;
       color: var(--text-muted);
-      margin-top: 2px;
+      margin-top: 1px;
+      text-align: justify;
     }
 
-    .skills-group {
-      margin-bottom: 8px;
+    /* Bottom double-column for compact sections */
+    .bottom-grid {
+      display: grid;
+      grid-template-cols: 1fr 1fr;
+      gap: 24px;
     }
 
-    .skills-group-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 4px;
-    }
-
-    .skills-list {
+    .bottom-col {
       display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .skill-tag {
-      font-size: 9.5px;
-      background-color: #f3f4f6;
-      color: #374151;
-      padding: 2px 6px;
-      border-radius: 3px;
-      border: 1px solid #e5e7eb;
-      font-weight: 500;
-    }
-
-    .skill-tag.expert {
-      border-color: rgba(5, 150, 105, 0.4);
-      background-color: rgba(5, 150, 105, 0.05);
-      color: #047857;
+      flex-direction: column;
+      gap: 16px;
     }
 
     .education-item h3 {
@@ -253,8 +260,16 @@
       gap: 3px;
     }
 
-    /* Print media query overrides */
+    /* Page-break block - invisible on screen, forces splitting on print */
+    .page-break {
+      display: none;
+    }
+
     @media print {
+      @page {
+        size: A4;
+        margin: 15mm;
+      }
       body {
         background: none;
         padding: 0;
@@ -264,14 +279,22 @@
         box-shadow: none;
         padding: 0;
         margin: 0;
-        width: 100%;
-        min-height: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        gap: 18px;
+      }
+      .page-break {
+        display: block;
+        page-break-after: always;
+        break-after: page;
       }
     }
   </style>
 </head>
 <body>
+  
   <div class="resume-container">
+    <!-- Header -->
     <header>
       <div class="header-left">
         <h1>Muhammad Umar Hassan</h1>
@@ -286,134 +309,19 @@
       </div>
     </header>
 
-    <div class="layout-grid">
-      <!-- Left Column (Primary Details) -->
-      <div class="left-col">
-        <!-- Professional Summary -->
-        <section>
-          <h2 class="section-title">Professional Summary</h2>
-          <p class="bio-text">
-            Computer Science graduate from FAST NUCES, Islamabad, specializing at the intersection of Full Stack Development and Artificial Intelligence. Architect of complete systems: from React frontends and Node.js backends to LLM-powered pipelines, multi-agent autonomous workflows, RAG architectures, and cloud-native serverless infrastructures on AWS.
-          </p>
-        </section>
+    <!-- Professional Summary -->
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="bio-text">
+        Computer Science graduate from FAST NUCES, Islamabad, specializing at the intersection of Full Stack Development and Artificial Intelligence. Architect of complete systems: from React frontends and Node.js backends to LLM-powered pipelines, multi-agent autonomous workflows, RAG architectures, and cloud-native serverless infrastructures on AWS.
+      </p>
+    </section>
 
-        <!-- Work Experience -->
-        <section>
-          <h2 class="section-title">Experience</h2>
-          
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <div>
-                <span class="role-title">Software Engineer</span>
-                <div class="company-name">Ozone Sync Limited</div>
-              </div>
-              <span class="company-duration">Apr 2026 – Present | Islamabad, PK</span>
-            </div>
-            <ul class="timeline-bullets">
-              <li>Architecting AI automation pipelines and intelligent agent systems as a technical lead.</li>
-              <li>Delivering LLM workflow integrations, multi-agent AI systems, and cloud infrastructure for client products.</li>
-              <li>Leading full-stack architecture decisions and end-to-end software delivery lifecycle.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <div>
-                <span class="role-title">Associate Software Engineer</span>
-                <div class="company-name">SoftBuilds</div>
-              </div>
-              <span class="company-duration">Feb 2026 – Apr 2026 | Islamabad, PK</span>
-            </div>
-            <ul class="timeline-bullets">
-              <li>Built scalable backend services and automated compliance pipelines for production enterprise systems.</li>
-              <li>Implemented automated monitoring, diagnostics, and resolution workflows.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <div>
-                <span class="role-title">Software Engineer Intern</span>
-                <div class="company-name">SoftBuilds</div>
-              </div>
-              <span class="company-duration">Nov 2025 – Jan 2026 | Islamabad, PK</span>
-            </div>
-            <ul class="timeline-bullets">
-              <li>Built core front-end features using React.js and REST API integrations.</li>
-              <li>Contributed to CI/CD-integrated deployment workflows.</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-header">
-              <div>
-                <span class="role-title">SAP Developer Intern</span>
-                <div class="company-name">Red Flag Consulting Group (SAP Partner)</div>
-              </div>
-              <span class="company-duration">Jun 2025 – Aug 2025 | Islamabad, PK</span>
-            </div>
-            <ul class="timeline-bullets">
-              <li>Developed ABAP programs and built SAP Fiori/SAPUI5 interfaces.</li>
-              <li>Automated SAP application workflows within enterprise delivery pipelines.</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Selected Projects -->
-        <section>
-          <h2 class="section-title">Selected Projects</h2>
-          
-          <div class="project-item">
-            <div class="project-title">
-              <span>ProxyIQ</span>
-              <span class="project-tech">AWS Lambda · AppSync · Amplify · HIPAA</span>
-            </div>
-            <p class="project-desc">Architected a serverless healthcare supply chain platform. Designed encrypted workflows for Protected Health Information (PHI) and automated compliance gating in CI/CD pipelines via Vanta.</p>
-          </div>
-
-          <div class="project-item">
-            <div class="project-title">
-              <span>AI Voice Sales Agent</span>
-              <span class="project-tech">Voice AI · STT/TTS · LLM Reasoning</span>
-            </div>
-            <p class="project-desc">Built an autonomous conversational voice agent for sales calls. End-to-end voice pipeline: STT → LLM reasoning → TTS in real time with dynamic objection handling and CRM handoff.</p>
-          </div>
-
-          <div class="project-item">
-            <div class="project-title">
-              <span>Movie Creation Multi-Agent System</span>
-              <span class="project-tech">Multi-Agent Systems · Python · LLMs</span>
-            </div>
-            <p class="project-desc">Designed a collaborative multi-agent architecture with role-specific agents (Story, Scene, Dialogue, Assets) communicating through structured orchestration pipelines to fully automate movie creative workflows.</p>
-          </div>
-
-          <div class="project-item">
-            <div class="project-title">
-              <span>Automotive Ad Creative MLOps Pipeline</span>
-              <span class="project-tech">Kubernetes · MLflow · Airflow · Docker</span>
-            </div>
-            <p class="project-desc">Engineered an automated LLM-powered ad copy generator. Configured MLflow for model registry/experiment tracking, Airflow for scheduling, and Kubernetes + Prometheus + Grafana for production monitoring.</p>
-          </div>
-        </section>
-      </div>
-
-      <!-- Right Column (Skills, Education, etc.) -->
-      <div class="right-col">
-        <!-- Education -->
-        <section>
-          <h2 class="section-title">Education</h2>
-          <div class="education-item">
-            <h3>BS in Computer Science</h3>
-            <div class="school">FAST NUCES</div>
-            <p>Islamabad, Pakistan</p>
-            <p>Graduate (2026)</p>
-          </div>
-        </section>
-
-        <!-- Core Skills -->
-        <section>
-          <h2 class="section-title">Skills & Proficiencies</h2>
-          
+    <!-- Skills & Proficiencies -->
+    <section>
+      <h2 class="section-title">Skills & Proficiencies</h2>
+      <div class="skills-grid">
+        <div class="skills-col">
           <div class="skills-group">
             <div class="skills-group-title">AI & Machine Learning</div>
             <div class="skills-list">
@@ -424,12 +332,11 @@
               <span class="skill-tag expert">OpenRouter/Claude/GPT</span>
               <span class="skill-tag">Agentic AI</span>
               <span class="skill-tag">Reinforcement Learning</span>
-              <span class="skill-tag">Computer Vision</span>
               <span class="skill-tag">NLP / Voice AI</span>
               <span class="skill-tag">TensorFlow / PyTorch</span>
             </div>
           </div>
-
+          
           <div class="skills-group">
             <div class="skills-group-title">Frontend</div>
             <div class="skills-list">
@@ -439,10 +346,11 @@
               <span class="skill-tag expert">JavaScript</span>
               <span class="skill-tag">Tailwind CSS</span>
               <span class="skill-tag">Material UI</span>
-              <span class="skill-tag">Angular</span>
             </div>
           </div>
+        </div>
 
+        <div class="skills-col">
           <div class="skills-group">
             <div class="skills-group-title">Backend & Databases</div>
             <div class="skills-list">
@@ -453,12 +361,11 @@
               <span class="skill-tag">PostgreSQL</span>
               <span class="skill-tag">MySQL / SQL</span>
               <span class="skill-tag">GraphQL</span>
-              <span class="skill-tag">Supabase</span>
             </div>
           </div>
 
           <div class="skills-group">
-            <div class="skills-group-title">Cloud, DevOps & MLOps</div>
+            <div class="skills-group-title">Cloud & DevOps</div>
             <div class="skills-list">
               <span class="skill-tag expert">AWS Lambda</span>
               <span class="skill-tag expert">Vercel</span>
@@ -467,8 +374,125 @@
               <span class="skill-tag">GitHub Actions</span>
               <span class="skill-tag">MLflow</span>
               <span class="skill-tag">Apache Airflow</span>
-              <span class="skill-tag">Prometheus / Grafana</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <h2 class="section-title">Experience</h2>
+      
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div>
+            <span class="role-title">Software Engineer</span>
+            <div class="company-name">Ozone Sync Limited</div>
+          </div>
+          <span class="company-duration">Apr 2026 – Present | Islamabad, PK</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Architecting AI automation pipelines and intelligent agent systems as a technical lead.</li>
+          <li>Delivering LLM workflow integrations, multi-agent AI systems, and cloud infrastructure for client products.</li>
+          <li>Leading full-stack architecture decisions and end-to-end software delivery lifecycle.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div>
+            <span class="role-title">Associate Software Engineer</span>
+            <div class="company-name">SoftBuilds</div>
+          </div>
+          <span class="company-duration">Feb 2026 – Apr 2026 | Islamabad, PK</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Built scalable backend services and automated compliance pipelines for production enterprise systems.</li>
+          <li>Implemented automated monitoring, diagnostics, and resolution workflows.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div>
+            <span class="role-title">Software Engineer Intern</span>
+            <div class="company-name">SoftBuilds</div>
+          </div>
+          <span class="company-duration">Nov 2025 – Jan 2026 | Islamabad, PK</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Built core front-end features using React.js and REST API integrations.</li>
+          <li>Contributed to CI/CD-integrated deployment workflows.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-header">
+          <div>
+            <span class="role-title">SAP Developer Intern</span>
+            <div class="company-name">Red Flag Consulting Group (SAP Partner)</div>
+          </div>
+          <span class="company-duration">Jun 2025 – Aug 2025 | Islamabad, PK</span>
+        </div>
+        <ul class="timeline-bullets">
+          <li>Developed ABAP programs and built SAP Fiori/SAPUI5 interfaces.</li>
+          <li>Automated SAP application workflows within enterprise delivery pipelines.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Page break here on printed document -->
+    <div class="page-break"></div>
+
+    <!-- Selected Projects -->
+    <section>
+      <h2 class="section-title">Selected Projects</h2>
+      
+      <div class="project-item">
+        <div class="project-title">
+          <span>ProxyIQ</span>
+          <span class="project-tech">AWS Lambda · AppSync · Amplify · HIPAA</span>
+        </div>
+        <p class="project-desc">Architected a serverless healthcare supply chain platform. Designed encrypted workflows for Protected Health Information (PHI) and automated compliance gating in CI/CD pipelines via Vanta.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">
+          <span>AI Voice Sales Agent</span>
+          <span class="project-tech">Voice AI · STT/TTS · LLM Reasoning</span>
+        </div>
+        <p class="project-desc">Built an autonomous conversational voice agent for sales calls. End-to-end voice pipeline: STT → LLM reasoning → TTS in real time with dynamic objection handling and CRM handoff.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">
+          <span>Movie Creation Multi-Agent System</span>
+          <span class="project-tech">Multi-Agent Systems · Python · LLMs</span>
+        </div>
+        <p class="project-desc">Designed a collaborative multi-agent architecture with role-specific agents (Story, Scene, Dialogue, Assets) communicating through structured orchestration pipelines to fully automate movie creative workflows.</p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-title">
+          <span>Automotive Ad Creative MLOps Pipeline</span>
+          <span class="project-tech">Kubernetes · MLflow · Airflow · Docker</span>
+        </div>
+        <p class="project-desc">Engineered an automated LLM-powered ad copy generator. Configured MLflow for model registry/experiment tracking, Airflow for scheduling, and Kubernetes + Prometheus + Grafana for production monitoring.</p>
+      </div>
+    </section>
+
+    <!-- Bottom details -->
+    <div class="bottom-grid">
+      <!-- Left bottom column -->
+      <div class="bottom-col">
+        <!-- Education -->
+        <section>
+          <h2 class="section-title">Education</h2>
+          <div class="education-item">
+            <h3>BS in Computer Science</h3>
+            <div class="school">FAST NUCES</div>
+            <p>Islamabad, Pakistan (Graduate 2026)</p>
           </div>
         </section>
 
@@ -481,25 +505,26 @@
             <span class="skill-tag">JavaScript</span>
             <span class="skill-tag">C++</span>
             <span class="skill-tag">Java</span>
-            <span class="skill-tag">C#</span>
             <span class="skill-tag">SQL</span>
             <span class="skill-tag">ABAP</span>
-            <span class="skill-tag">Assembly</span>
           </div>
         </section>
+      </div>
 
+      <!-- Right bottom column -->
+      <div class="bottom-col">
         <!-- Security & Compliance -->
         <section>
           <h2 class="section-title">Compliance & Security</h2>
           <ul class="bullet-list">
-            <li>HIPAA Compliance</li>
-            <li>SOC 2 Framework (Vanta)</li>
-            <li>IAM Policies & Secrets</li>
-            <li>CI/CD Security Automation</li>
+            <li>HIPAA Compliance (PHI encryption)</li>
+            <li>SOC 2 Framework controls (Vanta)</li>
+            <li>AWS IAM Policies & Secrets management</li>
+            <li>CI/CD pipeline security gating</li>
           </ul>
         </section>
 
-        <!-- Tools -->
+        <!-- Tools & Technologies -->
         <section>
           <h2 class="section-title">Tools & Other</h2>
           <div class="skills-list">
@@ -509,12 +534,11 @@
             <span class="skill-tag">VS Code</span>
             <span class="skill-tag">Android Studio</span>
             <span class="skill-tag">SAP Fiori</span>
-            <span class="skill-tag">Cameo Modeler</span>
-            <span class="skill-tag">SysML</span>
           </div>
         </section>
       </div>
     </div>
   </div>
+
 </body>
 </html>

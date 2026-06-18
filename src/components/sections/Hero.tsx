@@ -58,7 +58,7 @@ export function Hero() {
             <a href="#projects" className="w-full py-2.5 px-4 bg-primary text-primary-foreground font-bold text-center hover:bg-primary/90 transition-all rounded-xl flex items-center justify-center gap-2 uppercase tracking-wide text-[10px]">
               View My Work <ArrowRight size={12} />
             </a>
-            <a href="/resume.pdf" download="Muhammad_Umar_Hassan_Resume.pdf" className="w-full py-2.5 px-4 border border-white/20 text-foreground font-bold text-center hover:bg-white/5 hover:border-white transition-all rounded-xl flex items-center justify-center gap-2 uppercase tracking-wide text-[10px]">
+            <a href="/resume.html?download" target="_blank" rel="noopener noreferrer" className="w-full py-2.5 px-4 border border-white/20 text-foreground font-bold text-center hover:bg-white/5 hover:border-white transition-all rounded-xl flex items-center justify-center gap-2 uppercase tracking-wide text-[10px]">
               <Download size={12} /> Download Resume
             </a>
           </div>
