@@ -1,151 +1,212 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Terminal as TerminalIcon, Languages as LangIcon, CheckCircle2, ChevronDown } from "lucide-react";
-
-type SkillLevel = "Expert" | "Advanced" | "Intermediate";
-
-type Skill = {
-  name: string;
-  level: SkillLevel;
-};
+import { motion } from "framer-motion";
 
 type SkillGroup = {
   category: string;
-  skills: Skill[];
+  skills: string[];
 };
 
 const skillGroups: SkillGroup[] = [
   {
     category: "AI & Machine Learning",
     skills: [
-      { name: "Large Language Models (LLMs)", level: "Expert" },
-      { name: "Multi-Agent Systems", level: "Expert" },
-      { name: "RAG Pipelines", level: "Expert" },
-      { name: "Prompt Engineering", level: "Expert" },
-      { name: "LLM Orchestration", level: "Expert" },
-      { name: "OpenRouter / Claude / GPT APIs", level: "Expert" },
-      { name: "Agentic AI / Autonomous Workflows", level: "Advanced" },
-      { name: "Reinforcement Learning", level: "Advanced" },
-      { name: "Computer Vision / CNNs", level: "Advanced" },
-      { name: "Deep Learning", level: "Advanced" },
-      { name: "Sentiment Analysis / NLP", level: "Advanced" },
-      { name: "Voice AI (STT / TTS)", level: "Advanced" },
-      { name: "TensorFlow / PyTorch", level: "Intermediate" },
-      { name: "LSTM / Neural Networks", level: "Intermediate" },
-      { name: "OpenCL / Parallel Computing / OpenMP", level: "Intermediate" },
+      "Large Language Models (LLMs)",
+      "Multi-Agent Systems",
+      "RAG Pipelines",
+      "Prompt Engineering",
+      "LLM Orchestration",
+      "OpenRouter / Claude / GPT APIs",
+      "Agentic AI / Autonomous Workflows",
+      "Reinforcement Learning",
+      "Computer Vision / CNNs",
+      "Deep Learning",
+      "Sentiment Analysis / NLP",
+      "Voice AI (STT / TTS)",
+      "TensorFlow / PyTorch",
+      "LSTM / Neural Networks",
+      "OpenCL / Parallel Computing / OpenMP",
     ],
   },
   {
     category: "Frontend",
     skills: [
-      { name: "React.js", level: "Expert" },
-      { name: "Next.js", level: "Expert" },
-      { name: "TypeScript", level: "Expert" },
-      { name: "JavaScript", level: "Expert" },
-      { name: "HTML5 / CSS3", level: "Expert" },
-      { name: "Tailwind CSS", level: "Advanced" },
-      { name: "Material UI (MUI)", level: "Advanced" },
-      { name: "Angular", level: "Intermediate" },
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML5 / CSS3",
+      "Tailwind CSS",
+      "Material UI (MUI)",
+      "Angular",
     ],
   },
   {
     category: "Backend",
     skills: [
-      { name: "Node.js", level: "Expert" },
-      { name: "Express.js", level: "Expert" },
-      { name: "REST APIs", level: "Expert" },
-      { name: "Python", level: "Expert" },
-      { name: "Java", level: "Advanced" },
-      { name: "C / C++", level: "Advanced" },
-      { name: "GraphQL (AppSync)", level: "Advanced" },
-      { name: "C# / .NET", level: "Intermediate" },
-      { name: "ABAP (SAP)", level: "Intermediate" },
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Python",
+      "Java",
+      "C / C++",
+      "GraphQL (AppSync)",
+      "C# / .NET",
+      "ABAP (SAP)",
     ],
   },
   {
     category: "Cloud & DevOps",
     skills: [
-      { name: "AWS Lambda (Serverless)", level: "Expert" },
-      { name: "Vercel", level: "Expert" },
-      { name: "AWS Amplify", level: "Advanced" },
-      { name: "AWS AppSync", level: "Advanced" },
-      { name: "AWS Cognito", level: "Advanced" },
-      { name: "AWS EC2 / EKS", level: "Advanced" },
-      { name: "Docker", level: "Advanced" },
-      { name: "Kubernetes (K8s)", level: "Advanced" },
-      { name: "GitHub Actions (CI/CD)", level: "Advanced" },
-      { name: "Linux (Ubuntu)", level: "Advanced" },
+      "AWS Lambda (Serverless)",
+      "Vercel",
+      "AWS Amplify",
+      "AWS AppSync",
+      "AWS Cognito",
+      "AWS EC2 / EKS",
+      "Docker",
+      "Kubernetes (K8s)",
+      "GitHub Actions (CI/CD)",
+      "Linux (Ubuntu)",
     ],
   },
   {
     category: "Databases",
     skills: [
-      { name: "MongoDB / Atlas", level: "Expert" },
-      { name: "PostgreSQL", level: "Advanced" },
-      { name: "MySQL", level: "Advanced" },
-      { name: "SQL", level: "Advanced" },
-      { name: "DynamoDB (AWS)", level: "Intermediate" },
-      { name: "Supabase", level: "Intermediate" },
+      "MongoDB / Atlas",
+      "PostgreSQL",
+      "MySQL",
+      "SQL",
+      "DynamoDB (AWS)",
+      "Supabase",
     ],
   },
   {
     category: "MLOps",
     skills: [
-      { name: "MLflow", level: "Advanced" },
-      { name: "Apache Airflow", level: "Advanced" },
-      { name: "Prometheus", level: "Advanced" },
-      { name: "Grafana", level: "Advanced" },
+      "MLflow",
+      "Apache Airflow",
+      "Prometheus",
+      "Grafana",
+    ],
+  },
+  {
+    category: "Security & Compliance",
+    skills: [
+      "HIPAA Compliance (PHI)",
+      "SOC 2 (Vanta Framework)",
+      "AWS IAM & Secrets",
+      "CI/CD Security Automation",
+    ],
+  },
+  {
+    category: "Languages",
+    skills: [
+      "Python",
+      "TypeScript",
+      "JavaScript",
+      "Java",
+      "C / C++",
+      "C#",
+      "SQL",
+      "ABAP",
+      "Assembly (x86)",
+    ],
+  },
+  {
+    category: "Tools & Technologies",
+    skills: [
+      "Git / GitHub",
+      "Claude Code",
+      "Postman",
+      "VS Code",
+      "Android Studio",
+      "Cameo Systems Modeler",
+      "SAP Fiori / SAPUI5",
+      "SysML",
     ],
   },
 ];
 
-const securityCompliance = [
-  "HIPAA Compliance (PHI data protection)",
-  "SOC 2 Compliance (via Vanta framework)",
-  "AWS IAM Policies & Secrets Management",
-  "Security Automation in CI/CD deployment pipelines"
+const highlightedLogos = [
+  {
+    name: "React",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 stroke-current fill-none" strokeWidth="2">
+        <ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(30 12 12)" />
+        <ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(90 12 12)" />
+        <ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(150 12 12)" />
+        <circle cx="12" cy="12" r="2" className="fill-current" />
+      </svg>
+    ),
+  },
+  {
+    name: "TypeScript",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
+        <path d="M1.125 0h21.75c.621 0 1.125.504 1.125 1.125v21.75c0 .621-.504 1.125-1.125 1.125H1.125C.504 24 0 23.496 0 22.875V1.125C0 .504.504 0 1.125 0zm17.135 15.651c-.657-.393-1.407-.594-2.229-.594-1.248 0-2.208.57-2.208 1.956 0 2.871 4.545 2.508 4.545 5.253 0 1.392-1.035 2.214-2.829 2.214-1.398 0-2.433-.615-3.054-1.374l1.326-1.503c.537.603 1.257.99 2.025.99.981 0 1.488-.363 1.488-1.047 0-2.88-4.545-2.409-4.545-5.223 0-1.554 1.164-2.316 2.766-2.316 1.17 0 2.127.429 2.748.882l-1.329 1.488zm-8.871-.168H6.558v1.68h2.091v7.659h1.791V17.16h2.094v-1.677z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Next.js",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.892 18.006l-5.692-7.34v7.34H10.4v-10h1.8l5.692 7.34V8.006h1.8v10h-1.8z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Python",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current">
+        <path d="M11.9 2c-2.3 0-4.1.2-5.4.5-1.5.3-2.6 1-3.3 2.1-.8 1.1-1 2.5-1 4.5v1.2c0 2 0 3.4.9 4.5.6.8 1.5 1.2 2.7 1.4v-1.7c0-2.3 2-4.2 4.3-4.2h3.9c2.3 0 4.3-2 4.3-4.3V6.4c0-2.3-2-4.3-4.3-4.3L11.9 2zm-2.4 1.8c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7zm4.9 6.4c0 2.3-2 4.3-4.3 4.3H6.2c-2.3 0-4.3 2-4.3 4.3v3.9c0 2.3 2 4.3 4.3 4.3h3.9c2.3 0 4.1-.2 5.4-.5 1.5-.3 2.6-1 3.3-2.1.8-1.1 1-2.5 1-4.5v-1.2c0-2 0-3.4-.9-4.5-.6-.8-1.5-1.2-2.7-1.4v1.7c0 2.3-2 4.2-4.3 4.2zm-.1 6.2c.4 0 .7.3.7.7s-.3.7-.7.7-.7-.3-.7-.7.3-.7.7-.7z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "AWS",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current">
+        <path d="M15.5 12c-1-.2-2-.3-3-.4v-1.8c1.3.1 2.5.3 3.5.6V8.6c-1-.2-2.3-.4-3.5-.5V6c2.5.1 4.5.6 5.5 1.3v4.7zm-4.5.1c-1-.1-2-.1-3 0v1.7c1-.1 2-.1 3 0v-1.7zm0-3.6c-1-.1-2-.1-3 0v1.7c1-.1 2-.1 3 0V8.5zM22.8 13.9C21 16.3 16.7 18 12 18s-9-1.7-10.8-4.1c-.2-.3-.1-.7.2-.9l.7-.5c.3-.2.7-.2.9.1C4.7 14.8 8.1 16 12 16s7.3-1.2 9-3.4c.2-.3.6-.3.9-.1l.7.5c.3.2.4.6.2.9z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Docker",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current">
+        <path d="M13.983 11.078h2.119v-2.006h-2.119v2.006zm-2.825 0h2.12v-2.006h-2.12v2.006zm-2.827 0h2.12v-2.006h-2.12v2.006zm-2.814 0h2.119v-2.006H5.517v2.006zM5.517 8.477h2.119V6.47h-2.119v2.007zm2.814 0h2.12V6.47h-2.12v2.007zm2.827 0h2.12V6.47h-2.12v2.007zm-5.641-2.61h2.119V3.86H5.517v2.006zm13.111 4.605c-.244-.131-.482-.262-.72-.392v4.887c0 .121-.097.22-.218.22h-1.956v1.306h4.127c.121 0 .219-.098.219-.22v-5.801zm-5.074.392v4.887H15.6v1.306h4.128c.12 0 .218-.098.218-.22v-5.972zM24 13.014c0-.735-.386-1.423-1.01-1.808-.052-.032-.107-.06-.164-.085v-4.14H20.72v2.404h-1.807V6.981H17.1v2.404h-1.807V6.981h-1.807v2.404h-1.807V6.981h-1.807v2.404H8.064V9.385H6.257V11.79H4.45V9.385H2.643v2.404H.836c-.057.025-.112.053-.164.085A2.164 2.164 0 000 13.68c0 3.738 3.518 5.86 8.358 5.86 6.84 0 11.238-3.155 12.63-6.526 1.488 0 3.012-.663 3.012-1.686V13.014z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Kubernetes",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current">
+        <path d="M12.43 0a1.44 1.44 0 0 0-.86.29L1.86 7.42a1.43 1.43 0 0 0-.57.86l-1.28 11a1.43 1.43 0 0 0 .57 1.28l9.71 7.14a1.43 1.43 0 0 0 1.71 0l9.71-7.14a1.43 1.43 0 0 0 .57-1.28l-1.28-11a1.43 1.43 0 0 0-.57-.86L12.43.29A1.44 1.44 0 0 0 12 0zm-.43 2.5l8 5.89v8.32l-8 3.79-8-3.79V8.39z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Git",
+    svg: (
+      <svg viewBox="0 0 24 24" className="w-7 h-7 fill-current">
+        <path d="M23.384 11.252L12.748.616a1.765 1.765 0 0 0-2.496 0L8.74 2.13l3.528 3.528a2.478 2.478 0 0 1 2.87 2.87l3.528 3.528a2.478 2.478 0 0 1 .596 2.544l4.132 4.132a1.766 1.766 0 0 0 0-2.496zm-9.76 1.428a2.478 2.478 0 0 1-2.87-2.87L7.226 5.678A2.478 2.478 0 0 1 4.682 5.08L.55 9.214a1.766 1.766 0 0 0 0 2.496l10.636 10.636a1.765 1.765 0 0 0 2.496 0l4.132-4.132a2.478 2.478 0 0 1-2.544-.596l-1.646-1.644z"/>
+      </svg>
+    ),
+  },
 ];
 
-const languages = ["Python", "TypeScript", "JavaScript", "Java", "C", "C++", "C#", "SQL", "ABAP", "Assembly (x86)"];
-
-const tools = ["Git / GitHub", "Claude Code", "Postman", "VS Code", "Android Studio", "Cameo Systems Modeler", "SAP Fiori", "SAPUI5", "SysML"];
-
-function getLevelBadgeStyles(level: SkillLevel) {
-  switch (level) {
-    case "Expert":
-      return {
-        bg: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400",
-        dot: "bg-emerald-400 shadow-[0_0_8px_#10b981]",
-        cardHover: "hover:border-emerald-500/30 hover:shadow-[0_0_20px_rgba(16,185,129,0.08)]",
-      };
-    case "Advanced":
-      return {
-        bg: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400",
-        dot: "bg-cyan-400 shadow-[0_0_8px_#06b6d4]",
-        cardHover: "hover:border-cyan-500/30 hover:shadow-[0_0_20px_rgba(6,182,212,0.08)]",
-      };
-    case "Intermediate":
-      return {
-        bg: "bg-violet-500/10 border-violet-500/20 text-violet-400",
-        dot: "bg-violet-400 shadow-[0_0_8px_#8b5cf6]",
-        cardHover: "hover:border-violet-500/30 hover:shadow-[0_0_20px_rgba(139,92,246,0.08)]",
-      };
-  }
-}
-
 export function Skills() {
-  const [activeTab, setActiveTab] = useState(0);
-
   return (
     <section id="skills" className="min-h-screen flex flex-col justify-center py-20 lg:py-24 relative overflow-hidden bg-background">
-      <div className="max-w-[1400px] mx-auto px-6 w-full">
+      <div className="max-w-[1400px] mx-auto px-6 w-full space-y-12">
         
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-16"
+          className="mb-4"
         >
           <h2 className="text-massive-sm font-black uppercase flex flex-col">
             <span className="text-foreground">TECHNICAL</span>
@@ -153,162 +214,75 @@ export function Skills() {
           </h2>
         </motion.div>
 
-        <div className="w-full h-[1px] bg-white/10 mb-16" />
+        <div className="w-full h-[1px] bg-white/10 mb-6" />
 
-        {/* Dashboard Layout */}
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Column: Categories Selector & Skills Grid */}
-          <div className="lg:col-span-8 space-y-8">
-            
-            {/* Mobile Dropdown Selector */}
-            <div className="sm:hidden mb-6 relative">
-              <select
-                value={activeTab}
-                onChange={(e) => setActiveTab(Number(e.target.value))}
-                className="w-full px-5 py-3.5 text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 bg-card/60 text-white outline-none focus:border-primary appearance-none cursor-pointer pr-10"
+        {/* Highlighted Core Tech Stack Logos */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="py-4 space-y-6"
+        >
+          <h4 className="text-[10px] font-mono tracking-widest text-primary uppercase font-bold text-center">
+            Highlighted Core Stack
+          </h4>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-10">
+            {highlightedLogos.map((logo) => (
+              <div 
+                key={logo.name} 
+                className="flex flex-col items-center gap-2 group transition-all duration-300 transform hover:-translate-y-1"
+                title={logo.name}
               >
-                {skillGroups.map((group, idx) => (
-                  <option key={group.category} value={idx} className="bg-zinc-950 text-white">
-                    {group.category}
-                  </option>
-                ))}
-              </select>
-              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground">
-                <ChevronDown size={16} />
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/[0.02] border border-white/10 group-hover:border-primary/50 flex items-center justify-center text-white/40 group-hover:text-primary transition-all duration-300 shadow-[0_4px_15px_-8px_rgba(255,255,255,0.03)] group-hover:shadow-[0_4px_20px_-3px_rgba(16,185,129,0.18)] bg-card p-3">
+                  {logo.svg}
+                </div>
+                <span className="text-[9px] font-mono tracking-wider text-muted-foreground group-hover:text-white uppercase transition-colors">
+                  {logo.name}
+                </span>
               </div>
-            </div>
-
-            {/* Desktop Tabs Switcher */}
-            <div className="hidden sm:flex flex-wrap gap-2 pb-4 border-b border-white/5">
-              {skillGroups.map((group, idx) => (
-                <button
-                  key={group.category}
-                  onClick={() => setActiveTab(idx)}
-                  className={`px-5 py-3 text-xs font-bold uppercase tracking-wider rounded-xl border transition-all duration-300 shrink-0 cursor-pointer ${
-                    activeTab === idx
-                      ? "bg-primary text-primary-foreground border-primary shadow-[0_4px_20px_-5px_rgba(5,150,105,0.4)]"
-                      : "bg-white/[0.02] text-muted-foreground border-white/10 hover:border-white/25 hover:text-white"
-                  }`}
-                >
-                  {group.category}
-                </button>
-              ))}
-            </div>
-
-            {/* Active Skills Grid */}
-            <div className="min-h-[350px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.3 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
-                >
-                  {skillGroups[activeTab].skills.map((skill) => {
-                    const styles = getLevelBadgeStyles(skill.level);
-                    return (
-                      <div
-                        key={skill.name}
-                        className={`p-5 rounded-2xl border border-white/10 bg-card/30 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between gap-4 group ${styles.cardHover}`}
-                      >
-                        <span className="text-sm font-bold text-white leading-snug group-hover:text-primary transition-colors">
-                          {skill.name}
-                        </span>
-
-                        <div className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-lg border text-[9px] font-bold uppercase tracking-wider self-start ${styles.bg}`}>
-                          <span className={`w-1 h-1 rounded-full ${styles.dot}`} />
-                          {skill.level}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </motion.div>
-              </AnimatePresence>
-            </div>
+            ))}
           </div>
+        </motion.div>
 
-          {/* Right Column: Other Categorized Bento Panels */}
-          <div className="lg:col-span-4 space-y-6">
+        <div className="w-full h-[1px] bg-white/5 my-8" />
+
+        {/* Stack of Categorized Continuous Sliders */}
+        <div className="space-y-10">
+          {skillGroups.map((group, idx) => {
+            const isEven = idx % 2 === 0;
+            const animationClass = isEven ? "animate-marquee" : "animate-marquee-reverse";
             
-            {/* Security & Compliance Panel */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-6 rounded-2xl border border-white/10 bg-card/40 hover:border-primary/20 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <ShieldCheck size={18} />
+            return (
+              <motion.div
+                key={group.category}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
+                className="space-y-4"
+              >
+                {/* Category Heading */}
+                <h3 className="text-xs sm:text-sm font-black uppercase tracking-widest text-white/80 pl-2 border-l-2 border-primary">
+                  {group.category}
+                </h3>
+                
+                {/* Continuous Slider Wrapper */}
+                <div className="relative w-full overflow-hidden py-3 bg-white/[0.01] border-y border-white/5 mask-fade-edges">
+                  <div className={`flex gap-4 whitespace-nowrap ${animationClass}`}>
+                    {/* Triple the skills list to guarantee seamless infinite looping with -33.333% marquee offset */}
+                    {[...group.skills, ...group.skills, ...group.skills].map((skill, index) => (
+                      <span
+                        key={`${skill}-${index}`}
+                        className="px-4 py-2 text-xs font-semibold rounded-lg bg-card border border-white/10 text-white/90 hover:border-primary/50 hover:text-primary transition-all duration-300 select-none cursor-default"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Security & Compliance</h3>
-              </div>
-              <ul className="space-y-4">
-                {securityCompliance.map((item, idx) => (
-                  <li key={idx} className="flex gap-3 items-start text-xs md:text-sm text-muted-foreground">
-                    <CheckCircle2 size={15} className="text-primary shrink-0 mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Languages Panel */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="p-6 rounded-2xl border border-white/10 bg-card/40 hover:border-primary/20 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <LangIcon size={18} />
-                </div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Languages</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {languages.map((lang) => (
-                  <span
-                    key={lang}
-                    className="px-3 py-2 text-xs font-semibold rounded-lg bg-white/[0.02] border border-white/5 hover:border-primary/40 text-white/90 transition-all duration-200"
-                  >
-                    {lang}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Tools & Other Panel */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="p-6 rounded-2xl border border-white/10 bg-card/40 hover:border-primary/20 transition-all duration-300"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                  <TerminalIcon size={18} />
-                </div>
-                <h3 className="text-sm font-bold uppercase tracking-widest text-white">Tools & Other</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool) => (
-                  <span
-                    key={tool}
-                    className="px-3 py-2 text-xs font-mono rounded-lg bg-black/40 border border-white/5 hover:border-primary/30 text-white/70 transition-all duration-200"
-                  >
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-          </div>
+              </motion.div>
+            );
+          })}
         </div>
 
       </div>
