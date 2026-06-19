@@ -549,7 +549,7 @@ export function Projects() {
                 className="relative w-full max-w-5xl bg-card border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row z-10 max-h-[90vh] md:max-h-[85vh]"
               >
                 {/* Left/Top side: Project Image/Diagram Area */}
-                <div className="w-full md:w-1/2 min-h-[280px] md:min-h-0 relative bg-black/60 flex flex-col justify-between overflow-hidden shrink-0 border-b md:border-b-0 md:border-r border-white/10">
+                <div className="w-full md:w-1/2 h-48 sm:h-64 md:h-auto md:min-h-0 relative bg-black/60 flex flex-col justify-between overflow-hidden shrink-0 border-b md:border-b-0 md:border-r border-white/10">
                   {/* Tab buttons if diagram is available */}
                   {selected.flowDiagram && (
                     <div className="absolute top-4 left-4 z-20 flex gap-1 bg-black/80 backdrop-blur-md p-1 rounded-xl border border-white/10">

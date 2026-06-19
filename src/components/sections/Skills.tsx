@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShieldCheck, Terminal as TerminalIcon, Languages as LangIcon, CheckCircle2 } from "lucide-react";
+import { ShieldCheck, Terminal as TerminalIcon, Languages as LangIcon, CheckCircle2, ChevronDown } from "lucide-react";
 
 type SkillLevel = "Expert" | "Advanced" | "Intermediate";
 
@@ -161,8 +161,26 @@ export function Skills() {
           {/* Left Column: Categories Selector & Skills Grid */}
           <div className="lg:col-span-8 space-y-8">
             
-            {/* Horizontal Tabs Switcher */}
-            <div className="flex gap-2 overflow-x-auto pb-4 border-b border-white/5 scrollbar-none">
+            {/* Mobile Dropdown Selector */}
+            <div className="sm:hidden mb-6 relative">
+              <select
+                value={activeTab}
+                onChange={(e) => setActiveTab(Number(e.target.value))}
+                className="w-full px-5 py-3.5 text-xs font-bold uppercase tracking-wider rounded-xl border border-white/10 bg-card/60 text-white outline-none focus:border-primary appearance-none cursor-pointer pr-10"
+              >
+                {skillGroups.map((group, idx) => (
+                  <option key={group.category} value={idx} className="bg-zinc-950 text-white">
+                    {group.category}
+                  </option>
+                ))}
+              </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground">
+                <ChevronDown size={16} />
+              </div>
+            </div>
+
+            {/* Desktop Tabs Switcher */}
+            <div className="hidden sm:flex flex-wrap gap-2 pb-4 border-b border-white/5">
               {skillGroups.map((group, idx) => (
                 <button
                   key={group.category}

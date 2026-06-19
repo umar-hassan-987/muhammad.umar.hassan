@@ -69,16 +69,16 @@ export function Contact() {
             <div className="w-12 h-[1px] bg-primary/40" />
 
             <div className="space-y-6">
-              <div>
+              <div className="overflow-hidden">
                 <h3 className="text-[10px] font-mono tracking-widest text-primary uppercase font-bold mb-2">Email</h3>
-                <a href="mailto:muhammadumarhassan987@gmail.com" className="text-xl md:text-3xl font-extrabold text-white hover:text-primary transition-colors">
+                <a href="mailto:muhammadumarhassan987@gmail.com" className="text-base sm:text-xl md:text-3xl font-extrabold text-white hover:text-primary transition-colors break-all block">
                   muhammadumarhassan987@gmail.com
                 </a>
               </div>
 
-              <div>
+              <div className="overflow-hidden">
                 <h3 className="text-[10px] font-mono tracking-widest text-primary uppercase font-bold mb-2">Phone</h3>
-                <a href="tel:+923180834128" className="text-xl md:text-3xl font-extrabold text-white hover:text-primary transition-colors">
+                <a href="tel:+923180834128" className="text-lg sm:text-xl md:text-3xl font-extrabold text-white hover:text-primary transition-colors break-all block">
                   +92 318 083 4128
                 </a>
               </div>
@@ -104,7 +104,7 @@ export function Contact() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-8 rounded-3xl border border-white/10 bg-card/40 backdrop-blur-sm"
+            className="p-6 sm:p-8 rounded-3xl border border-white/10 bg-card/40 backdrop-blur-sm"
           >
             {mutation.isSuccess ? (
               <div className="flex flex-col items-start justify-center min-h-[350px]">
